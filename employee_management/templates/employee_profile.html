@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ employee.name }}'s Profile{% endblock %}
+
+{% block content %}
+<h1>{{ employee.name }}'s Profile</h1>
+<p><strong>Designation:</strong> {{ employee.designation }}</p>
+<p><strong>Description:</strong> {{ employee.short_description }}</p>
+<a href="{% url 'employee_list' %}">Back to Employee List</a>
+<a href="{% url 'homepage'  %}"> |Back to Home|</a>  <br>
+{% endblock %}

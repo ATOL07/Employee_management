@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}XYZ Company Employees{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-100">
+
+    <!-- Navigation Menu -->
+    <nav class="bg-gray-200 p-4">
+        <ul class="flex space-x-4">
+            <li><a href="{% url 'homepage' %}" class="text-blue-600 hover:bg-gray-300 px-3 py-2 rounded">Home</a></li>
+            <li><a href="{% url 'add_employee' %}" class="text-blue-600 hover:bg-gray-300 px-3 py-2 rounded">Add New Employee</a></li>
+            <li><a href="{% url 'employee_list' %}" class="text-blue-600 hover:bg-gray-300 px-3 py-2 rounded">Update Employee</a></li>
+            <li><a href="{% url 'employee_list' %}" class="text-blue-600 hover:bg-gray-300 px-3 py-2 rounded" onclick="return confirm('Are you sure you want to delete any employee?');">Delete Employee</a></li>
+            <li><a href="{% url 'employee_list' %}" class="text-blue-600 hover:bg-gray-300 px-3 py-2 rounded">Employee List</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="p-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to the XYZ Company</h1>
+<p>Use the navigation above to manage employees.</p>
+
+<h2>Employee Profiles:</h2>
+<ul>
+    {% for employee in employees %}
+        <li>
+            <strong>Name:</strong> {{ employee.name }} | 
+            <a href="{% url 'employee_profile' pk=employee.pk %}">View Profile</a> | 
+            <a href="{% url 'update_employee' pk=employee.pk %}">Edit</a> | 
+            <a href="{% url 'delete_employee' pk=employee.pk %}" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+        </li>
+    {% empty %}
+        <p>No employees found.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

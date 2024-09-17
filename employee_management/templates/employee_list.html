@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee List</title>
+</head>
+<body>
+    <h1>Employee Profiles:</h1>
+    <ul>
+        {% for employee in employees %}
+            <li>
+                <strong>Name:</strong> {{ employee.name }} | 
+                <a href="{% url 'employee_profile' pk=employee.pk %}">View Profile</a> | 
+                <a href="{% url 'update_employee' pk=employee.pk %}">Edit</a> | 
+                <a href="{% url 'delete_employee' pk=employee.pk %}" onclick="return confirm('Are you sure you want to delete this employee?');">Delete</a>
+            </li>
+        {% empty %}
+            <p>No employees found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
